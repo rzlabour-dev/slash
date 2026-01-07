@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Passport Photo Compliance Tool</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>📷 Passport Photo Compliance Tool</h1>
+            <p class="subtitle">Verify & correct photos for official requirements (35-40mm width, 70-80% face coverage)</p>
+        </header>
+
+        <div class="specs-box">
+            <h3>✅ Requirements Checklist:</h3>
+            <ul>
+                <li>✓ Width: 35-40mm (300-400px digital)</li>
+                <li>✓ Face covers 70-80% of photo</li>
+                <li>✓ Plain light-colored background</li>
+                <li>✓ Looking directly at camera</li>
+                <li>✓ Neutral expression, mouth closed</li>
+                <li>✓ Sharp focus, high quality</li>
+                <li>✓ No shadows or reflections</li>
+                <li>✓ Eyes clearly visible</li>
+            </ul>
+        </div>
+
+        <div class="main-content">
+            <div class="left-panel">
+                <div class="upload-section">
+                    <input type="file" id="imageUpload" accept="image/*" class="file-input">
+                    <label for="imageUpload" class="upload-btn">📁 Upload Photo</label>
+                </div>
+
+                <div class="tools-section">
+                    <h3>Tools</h3>
+                    <div class="button-group">
+                        <button onclick="autoCrop()" class="tool-btn">✂️ Auto-Crop (3:4)</button>
+                        <button onclick="adjustBrightness()" class="tool-btn">☀️ Adjust Brightness</button>
+                        <button onclick="applyBackground()" class="tool-btn">🎨 White Background</button>
+                        <button onclick="applyFaceGuide()" class="tool-btn">👁️ Face Guide</button>
+                        <button onclick="checkCompliance()" class="tool-btn">✅ Check Compliance</button>
+                        <button onclick="resetImage()" class="tool-btn">🔄 Reset</button>
+                    </div>
+                </div>
+
+                <div class="compliance-status">
+                    <h3>Compliance Status</h3>
+                    <div id="statusList"></div>
+                </div>
+            </div>
+
+            <div class="canvas-section">
+                <div class="canvas-container">
+                    <canvas id="mainCanvas" width="300" height="400"></canvas>
+                    <div class="canvas-overlay" id="faceGuide"></div>
+                </div>
+                <p class="canvas-label">Main Canvas (300×400px)</p>
+
+                <div class="preview-section">
+                    <h3>Preview (35×45mm)</h3>
+                    <canvas id="previewCanvas" width="150" height="200"></canvas>
+                </div>
+
+                <button onclick="downloadImage()" class="download-btn">💾 Download Corrected Photo</button>
+            </div>
+        </div>
+
+        <div class="instructions">
+            <h3>📋 How to Use:</h3>
+            <ol>
+                <li>Upload your photo</li>
+                <li>Use Auto-Crop for correct 3:4 ratio</li>
+                <li>Check compliance with requirements</li>
+                <li>Apply corrections as needed</li>
+                <li>Download corrected photo</li>
+            </ol>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
